@@ -17,12 +17,16 @@ def get_hostname():
 
 hostname = get_hostname()
 
-if hostname == "pion":
+if hostname == "porta":
     is_pi = True
 else:
     is_pi = False
 
-pi_parent_dir = "/home/rpi/e-Paper/RaspberryPi_JetsonNano/python"
+#old
+#pi_parent_dir = "/home/rpi/e-Paper/RaspberryPi_JetsonNano/python"
+#use path to script
+pi_parent_dir = os.path.dirname(__file__)
+
 
 if is_pi:
     sys.path.append(os.path.join(pi_parent_dir, "lib"))
