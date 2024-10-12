@@ -14,13 +14,17 @@ import warnings
 def get_hostname():
     return socket.gethostname().lower()
 
+def is_raspberry_pi():
+    try:
+        with open('/proc/device-tree/model', 'r') as file:
+            model = file.read()
+            return 'Raspberry Pi' in model
+    except FileNotFoundError:
+        return False
 
 hostname = get_hostname()
 
-if hostname == "porta":
-    is_pi = True
-else:
-    is_pi = False
+is_pi = is_raspberry_pi()
 
 #old
 #pi_parent_dir = "/home/rpi/e-Paper/RaspberryPi_JetsonNano/python"
