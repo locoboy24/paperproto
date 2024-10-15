@@ -1,0 +1,9 @@
+[Unit]
+Description="run protoDisplay.service every 5 minutes"
+
+[Timer]
+OnUnitActiveSec=5min
+Unit=protoDisplay.service
+
+[Install]
+WantedBy=multi-user.target
