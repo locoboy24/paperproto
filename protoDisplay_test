@@ -1,0 +1,4 @@
+#!/bin/bash
+cd  <local paperproto repo dir>
+source venv/bin/activate
+python proto.py
