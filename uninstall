@@ -1,0 +1,25 @@
+#!/bin/bash
+
+#Define dirs
+installDir="/opt/protoDisplay"
+binDir="/usr/local/bin/"
+serviceDir="/etc/systemd/system/"
+
+#stop and disable protoDisplay service/timer
+sudo systemctl stop protoDisplay.timer
+sudo systemctl stop protoDisplay.service
+sudo systemctl disable protoDisplay.timer
+sudo systemctl disable protoDisplay.service
+
+#remove service/timer unit files
+sudo rm $serviceDir"protoDisplay.service"
+sudo rm $serviceDir"protoDisplay.timer"
+
+#reload systemd configuration
+sudo systemctl daemon-reload
+
+#remove opt dir
+sudo rm -r $installDir
+
+#remove bin symlink
+sudo rm $binDir"protoDisplay"

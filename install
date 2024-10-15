@@ -1,0 +1,31 @@
+#!/bin/bash
+#Define dirs
+installDir="/opt/protoDisplay"
+binDir="/usr/local/bin/"
+serviceDir="/etc/systemd/system/"
+
+#make /opt dir
+mkdir $installDir
+sudo chmod 777 $installDir
+
+#copy program files to the opt dir
+cp -a venv $installDir
+cp -a lib $installDir
+cp -a pic $installDir
+cp -a Font.ttc $installDir
+cp -a proto.py $installDir
+cp -a protoDisplay $installDir
+sudo ln -sf $installDir"/protoDisplay" $binDir
+
+#copy service unit files
+cp -a protoDisplay.service $serviceDir
+cp -a protoDisplay.timer $serviceDir
+
+#reload systemd configuration
+sudo systemctl daemon-reload
+
+#start service/timer
+sudo systemctl start protoDisplay.service
+sudo systemctl enable protoDisplay.service
+sudo systemctl start protoDisplay.timer
+sudo systemctl enable protoDisplay.timer
