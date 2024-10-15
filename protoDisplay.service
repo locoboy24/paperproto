@@ -1,0 +1,12 @@
+[Unit]
+Description="Runs protoDisplay script which runs a python program that updates the waveshare display with sytem info"
+After=network-online.target multi-user.target
+Wants=network-online.target multi-user.target
+
+[Service]
+Type=simple
+Restart=on-failure
+ExecStart=/bin/bash /usr/local/bin/protoDisplay
+
+[Install]
+WantedBy=multi-user.target
