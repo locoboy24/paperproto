@@ -47,6 +47,7 @@ def main():
 		epd = epd2in13_V4.EPD()
 		epd.init()
 		epd.Clear(0xFF)
+		epd.sleep()
 
 if __name__ == "__main__":
 	main()
