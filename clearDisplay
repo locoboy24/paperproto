@@ -1,0 +1,4 @@
+#!/bin/bash
+cd /opt/protoDisplay
+source venv/bin/activate
+python clearDisplay.py
