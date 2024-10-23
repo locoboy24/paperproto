@@ -4,7 +4,9 @@ RequiresMountsFor=/opt/protoDisplay /usr/local/bin
 
 [Service]
 Type=oneshot
+ExecStart=/bin/true
 ExecStop=/bin/bash /usr/local/bin/clearDisplay
+RemainAfterExit=yes
 
 [Install]
 WantedBy=multi-user.target
