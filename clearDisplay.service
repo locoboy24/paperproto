@@ -1,0 +1,10 @@
+[Unit]
+Description="Clear waveshare epd before shutdown"
+RequiresMountsFor=/opt/protoDisplay /usr/local/bin
+
+[Service]
+Type=oneshot
+ExecStop=/bin/bash /usr/local/bin/clearDisplay
+
+[Install]
+WantedBy=multi-user.target
