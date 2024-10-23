@@ -14,6 +14,7 @@ cp -a lib $installDir
 cp -a pic $installDir
 cp -a Font.ttc $installDir
 cp -a proto.py $installDir
+cp -a clearDisplay.py $installDir
 cp -a protoDisplay $installDir
 cp -a clearDisplay $installDir
 cp -a uninstall $installDir
