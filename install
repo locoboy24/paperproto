@@ -15,11 +15,18 @@ cp -a pic $installDir
 cp -a Font.ttc $installDir
 cp -a proto.py $installDir
 cp -a protoDisplay $installDir
+cp -a clearDisplay $installDir
+cp -a uninstall $installDir
+cp -a clearDisplay $installDir
+
+#symlink to local bin
 sudo ln -sf $installDir"/protoDisplay" $binDir
+sudo ln -sf $installDir"/clearDisplay" $binDir
 
 #copy service unit files
 cp -a protoDisplay.service $serviceDir
 cp -a protoDisplay.timer $serviceDir
+cp -a clearDisplay.service $serviceDir
 
 #reload systemd configuration
 sudo systemctl daemon-reload
@@ -29,3 +36,5 @@ sudo systemctl start protoDisplay.service
 sudo systemctl enable protoDisplay.service
 sudo systemctl start protoDisplay.timer
 sudo systemctl enable protoDisplay.timer
+sudo systemctl start clearDisplay.service
+sudo systemctl enable clearDisplay.service

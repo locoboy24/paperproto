@@ -8,13 +8,15 @@ serviceDir="/etc/systemd/system/"
 #stop and disable protoDisplay service/timer
 sudo systemctl stop protoDisplay.timer
 sudo systemctl stop protoDisplay.service
+sudo systemctl stop clearDisplay.service
 sudo systemctl disable protoDisplay.timer
 sudo systemctl disable protoDisplay.service
+sudo systemctl disable clearDisplay.service
 
 #remove service/timer unit files
 sudo rm $serviceDir"protoDisplay.service"
 sudo rm $serviceDir"protoDisplay.timer"
-
+sudo rm $serviceDir"clearDisplay.service"
 #reload systemd configuration
 sudo systemctl daemon-reload
 
@@ -23,3 +25,4 @@ sudo rm -r $installDir
 
 #remove bin symlink
 sudo rm $binDir"protoDisplay"
+sudo rm $binDir"clearDisplay"
